@@ -18,22 +18,24 @@
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.open("GET", "insertion.php?eepromw=1", false);
                 xmlHttp.send();
+                document.getElementById("EEPROMStatus").innerHTML = "Write OK!";
 
-                await sleep(3000);
+                await sleep(650);
 
                 xmlHttp.open("GET", "insertion.php?eepromw=0", false);
                 xmlHttp.send();
+                document.getElementById("EEPROMStatus").innerHTML = "";
             }
         
         async function recording() {
 
                 let status = document.getElementById("RecordStatus").value;
-                if (status == "0")
+                if (status === "0")
                  {
                     document.getElementById("RecordStatus").value = "1";
                     document.getElementById("RecordStatus").innerHTML = "RECORDING!";
                  }
-                if (status == "1")
+                if (status === "1")
                  {
                     document.getElementById("RecordStatus").value = "0";
                     document.getElementById("RecordStatus").innerHTML = "OFF";
