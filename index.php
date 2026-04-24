@@ -4,9 +4,43 @@
         <title>REMOTEFX Control</title>
 
         <script>
-           async function insertValues(field) {
+
+        function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
+            }
+        async function insertValues(field) {
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.open("GET", "insertion.php?"+field+"="+document.getElementById(field).value, false);
+                xmlHttp.send();
+            }
+        
+         async function eepromWrite() {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", "insertion.php?eepromw=1", false);
+                xmlHttp.send();
+
+                await sleep(650);
+
+                xmlHttp.open("GET", "insertion.php?eepromw=0", false);
+                xmlHttp.send();
+            }
+        
+        async function recording() {
+
+                let status = document.getElementById("RecordStatus").value;
+                if (status == "0")
+                 {
+                    document.getElementById("RecordStatus").value = "1";
+                    document.getElementById("RecordStatus").innerHTML = "RECORDING!";
+                 }
+                if (status == "1")
+                 {
+                    document.getElementById("RecordStatus").value = "0";
+                    document.getElementById("RecordStatus").innerHTML = "OFF";
+                 }
+               
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", "insertion.php?record="+document.getElementById("RecordStatus").value, false);
                 xmlHttp.send();
             }
 
@@ -49,7 +83,7 @@
             <p><label for="volume"> Volume %: </label><input type="text" id="volume" name="volume" value="50"/> <button onclick='insertValues("volume")'>Update</button></p>
 
 
-        <input type="button" onclick="alert('This will eventually do something')" value="EEPROMwrite">
-        <input type="button" onclick="alert('This will eventually do something')" value="record">
+       <input type="button" onclick="eepromWrite()" value="EEPROMwrite">  <p id="EEPROMstatus"> </p>
+       <input type="button" onclick="recording()" value="Record"> <p id="RecordStatus" value="0">OFF</p>
 
     </body>
