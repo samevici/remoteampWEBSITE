@@ -29,20 +29,20 @@
         
         async function recording() {
 
-                let status = document.getElementById("recordCMD").innerHTML;
+                let status = document.getElementById("recordButton").value;
                 if (status === "0")
                  {
-                    document.getElementById("recordCMD").innerHTML = "1";
-                    document.getElementById("RecordStatus").innerHTML = "RECORDING!";
+                    document.getElementById("recordButton").value = "1";
+                    document.getElementById("recordStatus").innerHTML = "RECORDING!";
                  }
                 if (status === "1")
                  {
-                    document.getElementById("recordCMD").innerHTML = "0";
-                    document.getElementById("RecordStatus").innerHTML = "OFF";
+                    document.getElementById("recordButton").value = "0";
+                    document.getElementById("recordStatus").innerHTML = "OFF";
                  }
                
                 var xmlHttp = new XMLHttpRequest();
-                xmlHttp.open("GET", "insertion.php?record="+document.getElementById("recordCMD").innerHTML, false);
+                xmlHttp.open("GET", "insertion.php?record="+document.getElementById("recordButton").value, false);
                 xmlHttp.send();
             }
 
@@ -85,7 +85,7 @@
             <p><label for="volume"> Volume %: </label><input type="text" id="volume" name="volume" value="50"/> <button onclick='insertValues("volume")'>Update</button></p>
 
 
-       <button onclick="eepromWrite()" value="EEPROMwrite"></button>  <p id="EEPROMstatus"> </p>
-       <button onclick="recording()" value="Record"></button> <p id="RecordStatus" value="0">OFF</p> <p hidden id="recordCMD">0</p>
+       <button onclick="eepromWrite()">EEPROMwrite</button>  <p id="EEPROMstatus"> </p>
+       <button onclick="recording()" id="recordButton" value="0">Record</button> <p id="recordStatus">OFF</p> 
 
     </body>
