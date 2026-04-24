@@ -11,13 +11,12 @@
                     die("Connection failed: {mysqli_connect_error()}");
                 }
 
-                $sql = "select * from fx_settings;";
-                $result = mysqli_query($conn, $sql);
 
-                $potvalues =[];
+                $sql = "select * from fx_settings where id=1;";
+                $result = mysqli_query($conn, $sql);
+                
                 while ($row = mysqli_fetch_assoc($result)) {
-                     $potvalues[] = $row; // Adds each row as a nested array
+                      echo json_encode($row);
                 }
 
-                echo json_encode($potvalues);
 ?>
