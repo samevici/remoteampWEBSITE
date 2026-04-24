@@ -48,7 +48,7 @@
 
            async function refreshValues() {
                  var xmlHttp = new XMLHttpRequest();
-                  xmlHttp.open("GET", "encodetable.php?", false);
+                  xmlHttp.open("GET", "encodetable.php", false);
                   xmlHttp.send();
                   const result = JSON.parse(xmlHttp.responseText);
 
