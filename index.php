@@ -19,7 +19,7 @@
                 xmlHttp.open("GET", "insertion.php?eepromw=1", false);
                 xmlHttp.send();
 
-                await sleep(650);
+                await sleep(3000);
 
                 xmlHttp.open("GET", "insertion.php?eepromw=0", false);
                 xmlHttp.send();
