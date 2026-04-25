@@ -8,6 +8,7 @@
         function sleep(ms) {
               return new Promise(resolve => setTimeout(resolve, ms));
             }
+
         async function insertValues(field) {
                 var xmlHttp = new XMLHttpRequest();
                 xmlHttp.open("GET", "insertion.php?"+field+"="+document.getElementById(field).value, false);
@@ -70,33 +71,27 @@
         
             <label for="hi"> High pass %: </label><input type="text" id="hi" name="hi"  value="50"/> <button onclick='insertValues("hi")'>Update</button> <p id="hiRead"> </p>
        
-
-   
             <label for="band"> Band pass %: </label><input type="text" id="band" name="band" value="50"/> <button onclick='insertValues("band")'>Update</button> <p id="bandRead"></p>
-   
-
        
             <label for="lo"> Low pass %: </label><input type="text" id="lo" name="lo" value="50"/> <button onclick='insertValues("lo")'>Update</button> <p id="loRead"></p>
 
             <label for="rescut"> Resonance cutoff %: </label><input type="text" id="rescut" name="rescut" value="50"/> <button onclick='insertValues("rescut")'>Update</button> <p id="rescutRead"></p>
 
-
             <label for="resfeed"> Resonance feedback %: </label><input type="text" id="resfeed" name="resfeed" value="50"/>  <button onclick='insertValues("resfeed")'>Update</button> <p id="resfeedRead"></p>
 
             <label for="distgain"> Distortion gain %: </label><input type="text" id="distgain" name="distgain" value="50" /> <button onclick='insertValues("distgain")'>Update</button> <p id="distgainRead"></p>
-   
 
             <label for="distclip"> Distortion clipping %: </label><input type="text" id="distclip" name="distclip" value="50"/> <button onclick='insertValues("distclip")'>Update</button> <p id="distclipRead"></p>
-        
       
             <label for="volume"> Volume %: </label><input type="text" id="volume" name="volume" value="50"/> <button onclick='insertValues("volume")'>Update</button> <p id="volumeRead"></p>
 
-
-       <button onclick="eepromWrite()">EEPROMwrite</button>  <p id="EEPROMstatus"> </p>
-       <button onclick="recording()" id="recordButton" value="0">Record</button> <p id="recordStatus">OFF</p> 
+            <button onclick="eepromWrite()">EEPROMwrite</button>  <p id="EEPROMstatus"> </p>
+            
+            <button onclick="recording()" id="recordButton" value="0">Record</button> <p id="recordStatus">OFF</p> 
 
        <script>
         refreshValues();
         setInterval(refreshValues,500);
        </script>
+       
     </body>

@@ -1,5 +1,4 @@
  <?php
-
                 $server = "localhost";
                 $username = "php";
                 $password = "victorphpass";
@@ -29,5 +28,7 @@
 
                 $sql = "UPDATE fx_settings SET " . implode ($key) ." = " . implode($resp) . " WHERE id='1';";
                 $result = mysqli_query($conn, $sql);
+
+                mysqli_close($conn);
 
 ?>
