@@ -14,7 +14,6 @@
                 $sql = "select * from fx_settings;";
                 $result = mysqli_query($conn, $sql);
                 
-                foreach ($result as $row) {echo "~{$row['hi']}, {$row['band']}, {$row['lo']}, {$row['rescut']}, {$row['resfeed']}, {$row['distgain']}, {$row['distclip']}, {$row['volume']},  {$row['eepromw']},  {$row['record']}~";}
-
+                foreach ($result as $row) {echo "~{$row['hi']},{$row['band']},{$row['lo']},{$row['rescut']},{$row['resfeed']},{$row['distgain']},{$row['distclip']},{$row['volume']},{$row['eepromw']},{$row['record']}~";}
 ?>
 
