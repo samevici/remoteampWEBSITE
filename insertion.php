@@ -28,6 +28,7 @@
 
                 $sql = "UPDATE fx_settings SET " . implode ($key) ." = " . implode($resp) . " WHERE id='1';";
                 $result = mysqli_query($conn, $sql);
+                file_put_contents("./file.txt", $sql);
 
                 mysqli_close($conn);
 
