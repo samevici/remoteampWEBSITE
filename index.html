@@ -21,7 +21,7 @@
                 xmlHttp.send();
                 document.getElementById("EEPROMstatus").innerHTML = "Write OK!";
 
-                await sleep(650);
+                await sleep(2000);
 
                 xmlHttp.open("GET", "insertion.php?eepromw=0", false);
                 xmlHttp.send();
