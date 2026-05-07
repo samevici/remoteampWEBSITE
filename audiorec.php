@@ -10,20 +10,22 @@
                     die("Connection failed: {mysqli_connect_error()}");
                 }
                 
-                //upon flag:
+                //get UNIX timestamp for unique recording filename
                 $unixtime = time();
-                $bufsize = 4096;
 
-                $filein = fopen("php://input", "rb");
-                $fileout = fopen("file"."{$unixtime}".".bin", "wb");
+                foreach ($_GET as $x=>$y)
+                    {
+                        $recordstatus = htmlspecialchars("{$y}");
+                    };
 
-                while( $buf = fread($filein, $bufsize) ) {
-                    fwrite($fileout, $buf);
-                    }
-
-                fclose($filein);
-                fclose($fileout);
-
+            
+                if ($recordstatus == "1") {
+                 shell_exec('arecord -D plughw:2,0 -fS16_LE -r44100 -q recording'.$unixtime.'.wav');
+                } elseif ($recordstatus == "0") {
+                 shell_exec('pkill arecord');
+                }
+                
+            
                 mysqli_close($conn);
 
 ?>
