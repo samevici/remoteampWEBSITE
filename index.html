@@ -17,7 +17,7 @@
                 //convert from percentage to byte if necessary
                 if (field === "rescut"|| field === "resfeed" || field === "distgain" || field === "distclip" || field === "volume")
                 { 
-                let sendVal = Math.trunc(parseInt(document.getElementById(field).value)*255/100);
+                let sendVal = Math.round(parseInt(document.getElementById(field).value)*255/100);
                 xmlHttp.open("GET", "insertion.php?"+field+"="+sendVal, false);
                 xmlHttp.send();
                 }
@@ -69,11 +69,11 @@
                   document.getElementById("hiRead").innerHTML = result.hi;
                   document.getElementById("bandRead").innerHTML = result.band;
                   document.getElementById("loRead").innerHTML = result.lo;
-                  document.getElementById("rescutRead").innerHTML = result.rescut;
-                  document.getElementById("resfeedRead").innerHTML = result.resfeed;
-                  document.getElementById("distgainRead").innerHTML = result.distgain;
-                  document.getElementById("distclipRead").innerHTML = result.distclip;
-                  document.getElementById("volumeRead").innerHTML = result.volume;
+                  document.getElementById("rescutRead").innerHTML = Math.round(parseInt(result.rescut)*100/255);
+                  document.getElementById("resfeedRead").innerHTML = Math.round(parseInt(result.resfeed)*100/255);
+                  document.getElementById("distgainRead").innerHTML = Math.round(parseInt(result.distgain)*100/255);
+                  document.getElementById("distclipRead").innerHTML = Math.round(parseInt(result.distclip)*100/255);
+                  document.getElementById("volumeRead").innerHTML = Math.round(parseInt(result.volume)*100/255);
 
                 //eeprom write and recording need slightly more adapted logic
 
