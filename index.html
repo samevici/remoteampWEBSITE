@@ -66,14 +66,14 @@
                   const result = JSON.parse(xmlHttp.responseText);
 
                   //directly put the fetched value into the paragraph
-                  document.getElementById("hiRead").innerHTML = result.hi;
-                  document.getElementById("bandRead").innerHTML = result.band;
-                  document.getElementById("loRead").innerHTML = result.lo;
-                  document.getElementById("rescutRead").innerHTML = Math.round(parseInt(result.rescut)*100/255);
-                  document.getElementById("resfeedRead").innerHTML = Math.round(parseInt(result.resfeed)*100/255);
-                  document.getElementById("distgainRead").innerHTML = Math.round(parseInt(result.distgain)*100/255);
-                  document.getElementById("distclipRead").innerHTML = Math.round(parseInt(result.distclip)*100/255);
-                  document.getElementById("volumeRead").innerHTML = Math.round(parseInt(result.volume)*100/255);
+                  document.getElementById("hiRead").innerHTML = result.hi+"%";
+                  document.getElementById("bandRead").innerHTML = result.band+"%";
+                  document.getElementById("loRead").innerHTML = result.lo+"%";
+                  document.getElementById("rescutRead").innerHTML = Math.round(parseInt(result.rescut)*100/255)+"%";
+                  document.getElementById("resfeedRead").innerHTML = Math.round(parseInt(result.resfeed)*100/255)+"%";
+                  document.getElementById("distgainRead").innerHTML = Math.round(parseInt(result.distgain)*100/255)+"%";
+                  document.getElementById("distclipRead").innerHTML = Math.round(parseInt(result.distclip)*100/255)+"%";
+                  document.getElementById("volumeRead").innerHTML = Math.round(parseInt(result.volume)*100/255)+"%";
 
                 //eeprom write and recording need slightly more adapted logic
 
