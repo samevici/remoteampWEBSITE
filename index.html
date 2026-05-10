@@ -17,7 +17,7 @@
                 //convert from percentage to byte if necessary
                 if (field === "rescut"|| field === "resfeed" || field === "distgain" || field === "distclip" || field === "volume")
                 { 
-                let sendVal = parseInt(document.getElementById(field).value)*100/255;
+                let sendVal = Math.trunc(parseInt(document.getElementById(field).value)*100/255);
                 xmlHttp.open("GET", "insertion.php?"+field+"="+sendVal, false);
                 xmlHttp.send();
                 }
