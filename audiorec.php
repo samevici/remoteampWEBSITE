@@ -10,8 +10,10 @@
                     die("Connection failed: {mysqli_connect_error()}");
                 }
                 
-                //get UNIX timestamp for unique recording filename
+                //get time for unique recording filename
+                date_default_timezone_set('America/New_York');
                 $unixtime = time();
+                $newtime = date("Ymd_His", $unixtime); 
 
                 foreach ($_GET as $x=>$y)
                     {
