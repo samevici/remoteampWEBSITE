@@ -22,7 +22,7 @@
 
             
                 if ($recordstatus == "1") {
-                 shell_exec('arecord -D plughw:2,0 -fS16_LE -r44100 -q /home/recordings/recording'.$unixtime.'.wav');
+                 shell_exec('arecord -D plughw:2,0 -fS16_LE -r44100 -q /home/recordings/recording'.$newtime.'.wav');
                 } elseif ($recordstatus == "0") {
                  shell_exec('pkill arecord');
                 }
